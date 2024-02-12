@@ -1,0 +1,23 @@
+@use "variables" as v;
+
+.hero_Image {
+    height: 100dvh;
+    background-color: v.$secondary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero_text {
+    height: 25vh;
+    width: 45vw;
+    background-color: v.$primary-color;
+    color: v.$white-color;
+}
+p {
+    font-family:'fantasy';
+    font-size: 20px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, 0%,);
+}
