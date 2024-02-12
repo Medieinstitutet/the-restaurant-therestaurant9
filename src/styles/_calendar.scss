@@ -111,6 +111,11 @@
   font: inherit;
   font-size: 0.833em;
 }
+.react-calendar__tile span {
+  color: rgb(218, 216, 216);
+  width: 15px;
+  background: #23323f;
+}
 
 .react-calendar__tile:disabled {
   background-color: #f0f0f0;
@@ -129,12 +134,12 @@
 }
 
 .react-calendar__tile--now {
-  background: #5d6d72;
+  background: #cfbca5;
 }
 
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
-  background: #92aab1;
+  background: #9c8e7c;
 }
 
 .react-calendar__tile--hasActive {

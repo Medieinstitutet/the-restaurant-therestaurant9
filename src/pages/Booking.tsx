@@ -2,11 +2,11 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 
 export const Booking = () => {
-  type ValuePiece = Date | null;
+  const [date, setDate] = useState(new Date());
 
-  type Value = ValuePiece | [ValuePiece, ValuePiece];
-
-  const [date, setDate] = useState<Value>(new Date());
+  function onChange(nextValue: any) {
+    setDate(nextValue);
+  }
 
   const numberOfGuests = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -26,8 +26,19 @@ export const Booking = () => {
           <li>21:00</li>
         </ul>
         <p>Datum</p>
-        <Calendar value={date} onChange={setDate} />
-        <p>Selected Date: {date?.toString()}</p>
+        <Calendar value={date} onChange={onChange} showWeekNumbers />
+        <p>Selected Date: {date?.toDateString()}</p>
+        <p>Förnamn</p>
+        <input type="text" className="bookingInput" />
+        <p>Efternamn</p>
+        <input type="text" className="bookingInput" />
+        <p>Email</p>
+        <input type="email" className="bookingInput" />
+        <p>Telefon</p>
+        <input type="text" className="bookingInput" />
+        <div className="bookingButtonContainer">
+          <button className="bookingButton">Skicka</button>
+        </div>
       </form>
     </>
   );
