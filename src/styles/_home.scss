@@ -2,22 +2,42 @@
 
 .hero_Image {
     height: 100dvh;
-    background-color: v.$secondary-color;
     display: flex;
     justify-content: center;
     align-items: center;
+    .img {
+        height: 100px;
+        width: 100px;
+        place-items: center;
+        animation: fade-in 0.75s linear;
+    }
+    .hero_text {
+        height: 25vh;
+        width: 45vw;
+        background-color: v.$primary-color;
+        opacity: 60%;
+    }
+    p {
+        color: v.$white-color;
+        font-family:'fantasy';
+        font-size: 20px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, 0%,);
+    }
 }
-.hero_text {
-    height: 25vh;
-    width: 45vw;
+
+.startpage_meny {
+    height: 50dvh;
     background-color: v.$primary-color;
-    color: v.$white-color;
+    .img {
+        height: 40dvh;
+        width: 50vw;
+    }
 }
-p {
-    font-family:'fantasy';
-    font-size: 20px;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, 0%,);
+
+.reservation_container {
+    height: 50dvh;
+    background-color: v.$greyblue-color;
 }
