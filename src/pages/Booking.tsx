@@ -1,8 +1,14 @@
-import Calendar from "react-calendar";
 import { useState } from "react";
+import Calendar from "react-calendar";
 
 export const Booking = () => {
-  const [date, setDate] = useState(new Date());
+  type ValuePiece = Date | null;
+
+  type Value = ValuePiece | [ValuePiece, ValuePiece];
+
+  const [date, setDate] = useState<Value>(new Date());
+
+  const numberOfGuests = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   return (
     <>
@@ -10,18 +16,9 @@ export const Booking = () => {
         <h3>Boka</h3>
         <p>Antal gäster</p>
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
-          <li>10</li>
-          <li>11</li>
-          <li>12</li>
+          {numberOfGuests.map((amount) => (
+            <li>{amount}</li>
+          ))}
         </ul>
         <p>Sittning</p>
         <ul>
@@ -29,7 +26,8 @@ export const Booking = () => {
           <li>21:00</li>
         </ul>
         <p>Datum</p>
-        <Calendar value={date} />
+        <Calendar value={date} onChange={setDate} />
+        <p>Selected Date: {date?.toString()}</p>
       </form>
     </>
   );
