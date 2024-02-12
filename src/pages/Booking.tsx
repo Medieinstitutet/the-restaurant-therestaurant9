@@ -1,4 +1,9 @@
+import Calendar from "react-calendar";
+import { useState } from "react";
+
 export const Booking = () => {
+  const [date, setDate] = useState(new Date());
+
   return (
     <>
       <form className="bookingForm">
@@ -24,6 +29,7 @@ export const Booking = () => {
           <li>21:00</li>
         </ul>
         <p>Datum</p>
+        <Calendar value={date} />
       </form>
     </>
   );
