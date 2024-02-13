@@ -5,6 +5,7 @@ import { Booking } from "./pages/Booking";
 import { Menu } from "./pages/Menu";
 import { Contact } from "./pages/Contact";
 import { Admin } from "./pages/Admin";
+import { PagesLayout } from "./pages/PagesLayout";
 
 export const router = createBrowserRouter([
   {
@@ -16,20 +17,26 @@ export const router = createBrowserRouter([
         element: <Home />,
         index: true,
       },
+    ],
+  },
+  {
+    path: "/pages",
+    element: <PagesLayout />,
+    children: [
       {
-        path: "/booking",
+        path: "/pages/booking",
         element: <Booking />,
       },
       {
-        path: "/menu",
+        path: "/pages/menu",
         element: <Menu />,
       },
       {
-        path: "/contact",
+        path: "/pages/contact",
         element: <Contact />,
       },
       {
-        path: "/admin",
+        path: "/pages/admin",
         element: <Admin />,
       },
     ],
