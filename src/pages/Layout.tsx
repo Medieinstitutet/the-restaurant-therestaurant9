@@ -1,4 +1,4 @@
-import "./../styles/_home.scss";
+import "./../styles/App.scss";
 
 const restaurtantId = "65cb31932b1f9164881776d0";
 
