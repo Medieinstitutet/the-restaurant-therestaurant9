@@ -1,0 +1,22 @@
+@use "variables" as v;
+
+header {
+background-color: v.$primary-color;
+height: 50px;
+    nav {
+        height: 100%;
+        ul {
+            list-style: none;
+            gap: 15px;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            li a {
+    
+                color: v.$white-color;
+            }
+        }
+    }
+}
