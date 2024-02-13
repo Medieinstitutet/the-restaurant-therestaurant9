@@ -1,4 +1,5 @@
 @use "variables" as v;
+@use "mixins";
 
 .hero_Image {
     background: url(/src/assets/trattoria-grazie-sjostaden-10.jpg) no-repeat center;
@@ -22,16 +23,31 @@
         font-size: 40px;
         position: absolute;
         text-align: center;
-        top: 50%;
+        width: 50%;
+        top: 48%;
         left: 50%;
         transform: translate(-50%, 0%,);
         margin: 0;
         
     }
+    @media(min-width: v.$tablet) {
+        .hero_shadow {
+            height: 35vh;
+            width: 45vw;
+        }
+        .restaurant_text{
+            font-size: 50px;
+            padding: 20px;
+            width: 30%;
+            top: 43%;
+            left: 50%;
+            transform: translate(-50%, 0%,);
+        }
+    }
 }
 
 .startpage_meny {
-    height: 60dvh;
+    height: 70dvh;
     background-color: v.$primary-color;
     display: flex;
     flex-direction: column;
