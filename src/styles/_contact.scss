@@ -22,6 +22,7 @@
   width: 100%;
   height: auto;
   margin: 0;
+  text-align: center;
   h2 {
     font-size: 30px;
   }
@@ -31,6 +32,7 @@
 }
 
 contact-info {
+  text-align: center;
   h4 {
     font-size: 50px;
   }
@@ -56,6 +58,7 @@ contact-info {
     height: 100%;
     background-color: v.$light-color;
     color: v.$primary-color;
+    text-align: center;
   }
 
   .contact-title {
