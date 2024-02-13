@@ -1,7 +1,9 @@
 @use "variables" as v;
 @use "contact";
+@use "calendar";
+@use "bookingPage";
 
 #root {
-  margin: 0 ;
-width: 100%;
+  margin: 0;
+  width: 100%;
 }
