@@ -1,0 +1,88 @@
+@use "Variables" as v;
+
+.contact-container {
+  display: grid;
+  grid-template-columns: auto, auto;
+  grid-template-rows: auto, auto;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: v.$light-color;
+  color: v.$primary-color;
+
+  a {
+    color: v.$primary-color;
+    text-decoration: underline;
+  }
+}
+
+.contact-title {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 3;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  h2 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+contact-info {
+  h4 {
+    font-size: 50px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  margin: 5px;
+
+  iframe {
+    margin: 5px;
+  }
+}
+@media (max-width: v.$tablet) {
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: v.$light-color;
+    color: v.$primary-color;
+  }
+
+  .contact-title {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    h2 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 0, 5rem;
+    }
+  }
+
+  contact-info {
+    h6 {
+      font-size: 2rem;
+    }
+  }
+
+  .map-container {
+    width: 100%;
+    height: 100%;
+
+    iframe {
+      width: auto;
+      height: auto;
+    }
+  }
+}
