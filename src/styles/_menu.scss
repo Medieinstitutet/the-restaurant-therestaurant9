@@ -1,0 +1,98 @@
+@use "Variables" as v;
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  background-color: v.$darkblue-color;
+  color: v.$white-color;
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: auto;
+  }
+
+  .menu1 {
+    margin: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .menu2 {
+    margin: 5px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .menu-info {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: auto;
+  }
+  .menyinfo1 {
+    margin: 5px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .menyinfo2 {
+    margin: 5px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: v.$tablet) {
+    .menu {
+      flex-direction: column;
+      width: 80%;
+      height: auto;
+    }
+
+    .menu1 {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .menu2 {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .menu-info {
+      flex-direction: column;
+      width: 80%;
+      height: auto;
+    }
+    .menyinfo1 {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .menyinfo2 {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
