@@ -1,0 +1,67 @@
+@use "variables" as v;
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(225, 218, 209, 1);
+  color: black;
+  padding-bottom: 30px;
+}
+
+.bookingForm ul {
+  list-style: none;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.bookingForm p {
+  width: 80%;
+  margin-bottom: 8px;
+}
+
+.bookingForm .bookingInput {
+  width: 80%;
+  height: 30px;
+  background-color: white;
+  border: 0.5px solid #7c7c7c;
+  color: black;
+}
+.bookingButtonContainer {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bookingForm .bookingButton {
+  background-color: white;
+  border: 0.5px solid #7c7c7c;
+  margin-top: 20px;
+  color: black;
+}
+
+.bookingForm .bookingButton:hover {
+  background-color: #cfbca5;
+}
+
+.bookingForm ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 49%;
+  height: 35px;
+  background-color: white;
+  border: 0.5px solid #7c7c7c;
+  cursor: pointer;
+}
+
+.bookingForm ul li:hover {
+  background-color: rgb(218, 216, 216);
+}
