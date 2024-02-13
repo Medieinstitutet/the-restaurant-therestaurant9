@@ -1,7 +1,7 @@
 @use "variables" as v;
 
 .hero_Image {
-    background: url(/the-restaurant-therestaurant9/src/assets/trattoria-grazie-sjostaden-10.jpg) no-repeat center;
+    background: url(/src/assets/trattoria-grazie-sjostaden-10.jpg) no-repeat center;
     background-size: cover;
     height: 100dvh;
     display: flex;
@@ -19,6 +19,7 @@
         font-family:'fantasy';
         font-size: 20px;
         position: absolute;
+        text-align: center;
         top: 45%;
         left: 50%;
         transform: translate(-50%, 0%,);
