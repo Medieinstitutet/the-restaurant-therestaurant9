@@ -5,6 +5,19 @@ background-color: v.$primary-color;
 height: 50px;
     nav {
         height: 100%;
+        h2 {
+            margin-top: 5px;
+            margin-bottom: 0;
+            padding-left: 10px;
+            top: 10px;
+            float: left;
+            color: v.$white-color;
+            font-family: "Just Another Hand", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+
+        }
         ul {
             list-style: none;
             gap: 15px;

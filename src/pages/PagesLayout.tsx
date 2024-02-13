@@ -5,6 +5,7 @@ export const PagesLayout = () => {
     <>
       <header>
         <nav>
+          <h2>Trattoria Gustoso</h2>
           <ul>
             <li>
               <NavLink to={"/"}>Hem</NavLink>

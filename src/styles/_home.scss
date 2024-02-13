@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     background-color: v.$secondary-color;
-    .hero_text {
+    .hero_shadow {
         height: 25vh;
         width: 45vw;
         background-color: v.$primary-color;
@@ -26,18 +26,47 @@
         left: 50%;
         transform: translate(-50%, 0%,);
         margin: 0;
+        
     }
 }
 
 .startpage_meny {
-    height: 50dvh;
+    height: 60dvh;
     background-color: v.$primary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    gap: 50px;
+    opacity: 0;
+    transition: 1s all ease;
+    &_text {
+        color: v.$white-color;
+        margin: 0;
+        display: inline;      
+        width: 70%;
+        font-family:  'sans-serif', cursive;
+    }
+
     button {
         background-color: rgb(82, 75, 60);
-        text-decoration: none;
+        width: 50%;
+        border-radius: 20px;
+        
+        #link {
+            color: v.$white-color;
+        }
+    }
+    button:hover {
+        border: 1px solid v.$white-color;
     }
 }
-
+.startpage_meny.active{
+    opacity: 1;
+}
+.active.fade-bottom {
+    animation: fade-bottom 1s ease-in;
+}
 .reservation_container {
     height: 50dvh;
     background-color: v.$greyblue-color;
