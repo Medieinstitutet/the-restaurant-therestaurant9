@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./../styles/App.scss";
 
 const restaurtantId = "65cb31932b1f9164881776d0";
@@ -22,6 +22,8 @@ function reveal() {
 window.addEventListener("scroll", reveal);
 
 export const Layout = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <header>
@@ -59,15 +61,21 @@ export const Layout = () => {
           av autentiska smaker och en måltid som är full av kärlek och passion
           för matlagning. Buon appetito!"
         </p>
-        <button>
-          <NavLink to={"/pages/menu"} id="link">
-            Meny
-          </NavLink>
+        <button
+          onClick={() => {
+            navigate("/pages/menu");
+          }}
+        >
+          Meny
         </button>
       </div>
       <div className="reservation_container">
-        <button>
-          <Link to={"/pages/booking"}>Reservation</Link>
+        <button
+          onClick={() => {
+            navigate("/pages/booking");
+          }}
+        >
+          Reservation
         </button>
       </div>
     </>

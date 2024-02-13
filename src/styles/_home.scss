@@ -53,8 +53,9 @@
         width: 50%;
         border-radius: 20px;
         
-        #link {
+        a {
             color: v.$white-color;
+            width: 100%;
         }
     }
     button:hover {
