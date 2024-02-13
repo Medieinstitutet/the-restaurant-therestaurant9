@@ -12,7 +12,12 @@ export const Booking = () => {
 
   return (
     <>
-      <form className="bookingForm">
+      <form
+        className="bookingForm"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <h3>Boka</h3>
         <p>Antal gäster</p>
         <ul>
