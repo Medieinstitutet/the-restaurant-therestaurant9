@@ -24,12 +24,12 @@ export const Booking = () => {
   type ValuePiece = Date | null;
   type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-  function onChange(nextValue: Value) {
+  const onChange = (nextValue: Value) => {
     console.log(nextValue);
     if (booking && nextValue) {
       setBooking({ ...booking, date: nextValue?.toLocaleString() });
     }
-  }
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const propertyName = e.target.name;
