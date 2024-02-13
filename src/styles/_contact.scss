@@ -5,8 +5,8 @@
   grid-template-columns: auto, auto;
   grid-template-rows: auto, auto;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   background-color: v.$light-color;
   color: v.$primary-color;
 
@@ -44,12 +44,8 @@ contact-info {
 .map-container {
   width: 100%;
   height: 100%;
-  margin: 5px;
-
-  iframe {
-    margin: 5px;
-  }
 }
+
 @media (max-width: v.$tablet) {
   .contact-container {
     display: flex;
