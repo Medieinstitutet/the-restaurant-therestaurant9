@@ -45,18 +45,15 @@
         margin: 0;
         display: inline;      
         width: 70%;
-        font-family:  'sans-serif', cursive;
+        font-family: "Lucida Calligraphy", cursive;
+       
     }
 
     button {
         background-color: rgb(82, 75, 60);
         width: 50%;
         border-radius: 20px;
-        
-        a {
-            color: v.$white-color;
-            width: 100%;
-        }
+        color: v.$white-color;
     }
     button:hover {
         border: 1px solid v.$white-color;
