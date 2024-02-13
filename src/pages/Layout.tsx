@@ -1,4 +1,4 @@
-import "./../styles/_home.scss";
+import "./../styles/App.scss";
 
 export const Layout = () => {
   return (
