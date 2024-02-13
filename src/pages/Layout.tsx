@@ -1,5 +1,7 @@
 import "./../styles/_home.scss";
 
+const restaurtantId = "65cb31932b1f9164881776d0";
+
 export const Layout = () => {
   return (
     <>
