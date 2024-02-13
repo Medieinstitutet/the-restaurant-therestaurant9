@@ -1,20 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import Calendar from "react-calendar";
 import axios from "axios";
+import { IBooking } from "../models/IBooking";
 
-export interface ICustomer {
-  userName: string;
-  userLastName: string;
-  userEmail: string;
-  userPhone: string;
-}
-export interface IBooking {
-  restaurantId: string;
-  date: string;
-  time: string;
-  numberOfGuests: number;
-  customer: ICustomer;
-}
 export const Booking = () => {
   const [date, setDate] = useState(new Date());
   const [booking, setBooking] = useState<IBooking>({
