@@ -8,20 +8,20 @@ export const Contact = () => {
         </span>
 
         <article className="contact-info">
-          <h4>Öpprtider</h4>
+          <h6>Öpprtider</h6>
           <p>Onsdag-Söndag: 17-23</p>
 
-          <h4>Adress</h4>
+          <h6>Adress</h6>
           <p>Drottninggatan 1</p>
           <p>123 45 Stockholm</p>
 
-          <h4>Kontakt info</h4>
+          <h6>Kontakt info</h6>
           <p>08-554 23 55</p>
           <p>
             <a href="#">info@trattoriagustoso.com</a>
           </p>
 
-          <h4>Socialamedier</h4>
+          <h6>Socialamedier</h6>
           <p>
             Följ oss på <a href="#">Facebook</a> och <a href="#">Instagram</a>!
           </p>
