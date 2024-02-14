@@ -15,13 +15,16 @@
     width: 45vw;
     background-color: v.$primary-color;
     opacity: 60%;
+    @include mixins.tablet {
+        height: 32vh;
+        width: 40vw;
+    }
+    @include mixins.desktop {
+        height: 32vh;
+        width: 35vw;
+    }
   }
   .restaurant_text {
-    font-family: "Just Another Hand", cursive;
-    font-weight: 400;
-    font-style: normal;
-    color: v.$white-color;
-    font-size: 40px;
     position: absolute;
     text-align: center;
     width: 50%;
@@ -29,21 +32,30 @@
     left: 50%;
     transform: translate(-50%, 0%);
     margin: 0;
-  }
-  @media (min-width: v.$tablet) {
-    .hero_shadow {
-      height: 35vh;
-      width: 45vw;
+    @include mixins.tablet {
+        top: 45%;
+        left: 50%;
     }
-    .restaurant_text {
-      font-size: 50px;
-      padding: 20px;
-      width: 30%;
-      top: 43%;
-      left: 50%;
-      transform: translate(-50%, 0%);
+    @include mixins.desktop {
+        top: 44%;
+        left: 50%;
     }
-  }
+    p{
+        font-family: "Just Another Hand", cursive;
+        font-weight: 400;
+        font-style: normal;
+        color: v.$white-color;
+        font-size: 40px;
+        margin: 0;
+        @include mixins.tablet{
+            font-size: 60px;
+        }
+        @include mixins.desktop{
+            font-size: 70px;
+        }
+    }
+
+}
 }
 
 .startpage_meny {
@@ -56,12 +68,13 @@
   gap: 50px;
   opacity: 0;
   transition: 1s all ease;
-  &_text {
+  p {
     color: v.$white-color;
     margin: 0;
     display: inline;
     width: 70%;
     font-family: "Lucida Calligraphy", cursive;
+    transition: 1.2s ease;
   }
 
   button {
@@ -73,6 +86,14 @@
   button:hover {
     border: 1px solid v.$white-color;
   }
+  @media (min-width: v.$tablet) {
+    p {
+        height: 20dvh;
+    }
+    button {
+        width: 40vw;
+    }
+  }
 }
 .startpage_meny.active {
   opacity: 1;
@@ -80,7 +101,75 @@
 .active.fade-bottom {
   animation: fade-bottom 1s ease-in;
 }
-.reservation_container {
-  height: 50dvh;
+
+.reservation {
+  height: 80dvh;
   background-color: v.$greyblue-color;
+  @include mixins.tablet {
+    height: 100dvh;
+}
+  .reservation_container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap:10px;
+      
+      img {
+        width: 90vw;
+        height: 30dvh;
+        margin: 10px;
+        @include mixins.tablet {
+            width: 50vw;
+            height: 50dvh;
+        }
+      }
+      p {
+        margin: 0;
+        padding: 15px;
+        color: v.$white-color;
+        font-family: "Lucida Calligraphy", cursive;
+    }
+    button {
+      background-color: rgb(114, 135, 141);
+      width: 50%;
+      border-radius: 20px;
+      color: v.$white-color;
+      }
+      button:hover {
+        border: 1px solid v.$white-color;
+      }
+}
+}
+footer {
+    height: 60dvh;
+    background-color: v.$darkblue-color;
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    @media (min-width: v.$tablet) {
+
+    }
+    section {
+        h3{
+            color: v.$white-color;
+            text-align: center;
+        }
+        p{
+            color: v.$white-color;
+            text-align: center;
+        }
+    }
+    button {
+        background-color: rgb(50, 71, 90);
+        width: 50%;
+        border-radius: 20px;
+        color: v.$white-color;
+    }
+    button:hover {
+        border: 1px solid v.$white-color;
+    }
+
 }
