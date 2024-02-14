@@ -1,0 +1,12 @@
+@use "variables" as v;
+@use "contact";
+@use "calendar";
+@use "bookingPage";
+@use "home";
+@use "navbar";
+@use "menu";
+
+#root {
+  margin: 0;
+  width: 100%;
+}
