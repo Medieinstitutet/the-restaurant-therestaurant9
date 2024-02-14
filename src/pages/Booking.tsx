@@ -1,7 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import Calendar from "react-calendar";
-import axios from "axios";
 import { IBooking } from "../models/IBooking";
+import { BookingCustomerData } from "../components/BookingCustomerData";
+import { handleBookingSubmit } from "../services/handleBookingSubmit";
 
 export const Booking = () => {
   const [date, setDate] = useState(new Date());
@@ -24,7 +25,7 @@ export const Booking = () => {
   type ValuePiece = Date | null;
   type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-  const onChange = (nextValue: Value) => {
+  const calendarOnChange = (nextValue: Value) => {
     console.log(nextValue);
     if (booking && nextValue) {
       setBooking({ ...booking, date: nextValue?.toLocaleString() });
@@ -53,25 +54,6 @@ export const Booking = () => {
     }
   };
 
-  const handleSubmit = async () => {
-    const response = await axios.post(
-      "https://school-restaurant-api.azurewebsites.net/booking/create",
-      {
-        restaurantId: "65cb31932b1f9164881776d0",
-        date: booking?.date,
-        time: booking?.time,
-        numberOfGuests: booking?.numberOfGuests,
-        customer: {
-          name: booking?.customer.userName,
-          lastname: booking?.customer.userLastName,
-          email: booking?.customer.userEmail,
-          phone: booking?.customer.userPhone,
-        },
-      }
-    );
-    console.log(response);
-  };
-
   console.log(booking);
 
   return (
@@ -92,7 +74,7 @@ export const Booking = () => {
           ))}
         </ul>
         <p>Datum</p>
-        <Calendar value={date} onChange={onChange} showWeekNumbers />
+        <Calendar value={date} onChange={calendarOnChange} showWeekNumbers />
         <p>Selected Date: {date.toDateString()}</p>
         <p>Sittning</p>
         <ul>
@@ -102,41 +84,12 @@ export const Booking = () => {
             </li>
           ))}
         </ul>
-        <h4>Kunduppgifter</h4>
-        <p>Förnamn</p>
-        <input
-          type="text"
-          className="bookingInput"
-          value={booking?.customer.userName}
-          onChange={handleChange}
-          name="userName"
-        />
-        <p>Efternamn</p>
-        <input
-          type="text"
-          className="bookingInput"
-          value={booking?.customer.userLastName}
-          onChange={handleChange}
-          name="userLastName"
-        />
-        <p>Email</p>
-        <input
-          type="email"
-          className="bookingInput"
-          value={booking?.customer.userEmail}
-          onChange={handleChange}
-          name="userEmail"
-        />
-        <p>Telefon</p>
-        <input
-          type="text"
-          className="bookingInput"
-          value={booking?.customer.userPhone}
-          onChange={handleChange}
-          name="userPhone"
-        />
+        <BookingCustomerData booking={booking} handleChange={handleChange} />
         <div className="bookingButtonContainer">
-          <button className="bookingButton" onClick={handleSubmit}>
+          <button
+            className="bookingButton"
+            onClick={() => handleBookingSubmit(booking)}
+          >
             Skicka
           </button>
         </div>
