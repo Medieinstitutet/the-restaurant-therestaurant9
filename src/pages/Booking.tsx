@@ -3,6 +3,7 @@ import Calendar from "react-calendar";
 import { IBooking } from "../models/IBooking";
 import { BookingCustomerData } from "../components/BookingCustomerData";
 import { handleBookingSubmit } from "../services/handleBookingSubmit";
+import { Guest } from "../models/Guest";
 
 export const Booking = () => {
   const [date, setDate] = useState(new Date());
@@ -19,8 +20,24 @@ export const Booking = () => {
     },
   });
 
-  const numberOfGuests = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const numberOfGuests = [
+    new Guest(1, false),
+    new Guest(2, false),
+    new Guest(3, false),
+    new Guest(4, false),
+    new Guest(5, false),
+    new Guest(6, false),
+    new Guest(7, false),
+    new Guest(8, false),
+    new Guest(9, false),
+    new Guest(10, false),
+    new Guest(11, false),
+    new Guest(12, false),
+  ];
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const timeSlots = ["18:00", "21:00"];
+
+  let guestClass = "";
 
   type ValuePiece = Date | null;
   type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -52,12 +69,13 @@ export const Booking = () => {
     if (booking) {
       setBooking({ ...booking, numberOfGuests: amount });
     }
+    guestClass = "guestClicked";
   };
 
   console.log(booking);
 
   return (
-    <>
+    <section className="bookingContainer">
       <form
         className="bookingForm"
         onSubmit={(e) => {
@@ -67,9 +85,13 @@ export const Booking = () => {
         <h3>Boka</h3>
         <p>Antal gäster</p>
         <ul>
-          {numberOfGuests.map((amount) => (
-            <li key={amount} onClick={() => handleGuestClick(amount)}>
-              {amount}
+          {numberOfGuests.map((guests) => (
+            <li
+              key={guests.amount}
+              onClick={() => handleGuestClick(guests.amount)}
+              className={guestClass}
+            >
+              {guests.amount}
             </li>
           ))}
         </ul>
@@ -94,6 +116,11 @@ export const Booking = () => {
           </button>
         </div>
       </form>
-    </>
+      <div className="bookingImageContainer">
+        <section className="bookingTitleContainer">
+          <p className="bookingTitle">Trattoria Gustoso</p>
+        </section>
+      </div>
+    </section>
   );
 };

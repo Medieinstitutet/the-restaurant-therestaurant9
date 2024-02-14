@@ -1,4 +1,10 @@
 @use "variables" as v;
+@use "mixins";
+
+.bookingContainer {
+  display: flex;
+  flex-direction: row;
+}
 
 .bookingForm {
   display: flex;
@@ -8,6 +14,9 @@
   background-color: rgba(225, 218, 209, 1);
   color: black;
   padding-bottom: 30px;
+  @include mixins.tablet {
+    width: 50%;
+  }
 }
 
 .bookingForm ul {
@@ -64,4 +73,50 @@
 
 .bookingForm ul li:hover {
   background-color: rgb(218, 216, 216);
+}
+.guestClicked {
+  background-color: rgb(218, 216, 216);
+}
+
+.bookingImageContainer {
+  background: url(/src/assets/trattoria-grazie-sjostaden-10.jpg) no-repeat
+    center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 0%;
+  display: flex;
+  justify-content: center;
+
+  @include mixins.tablet {
+    width: 50%;
+  }
+}
+
+.bookingTitleContainer {
+  visibility: hidden;
+
+  @include mixins.tablet {
+    visibility: visible;
+    background-color: v.$secondary-color;
+    border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    transform: translate(0%, -40%);
+    width: 25%;
+    border: 2px solid v.$primary-color;
+  }
+}
+
+.bookingTitle {
+  visibility: hidden;
+
+  @include mixins.tablet {
+    visibility: visible;
+    text-align: center;
+    font-family: "Just Another Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 45px;
+    color: v.$primary-color;
+  }
 }

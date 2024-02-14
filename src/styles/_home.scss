@@ -2,86 +2,85 @@
 @use "mixins";
 
 .hero_Image {
-    background: url(/src/assets/trattoria-grazie-sjostaden-10.jpg) no-repeat center;
-    background-size: cover;
-    height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: v.$secondary-color;
+  background: url(/src/assets/trattoria-grazie-sjostaden-10.jpg) no-repeat
+    center;
+  background-size: cover;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: v.$secondary-color;
+  .hero_shadow {
+    height: 25vh;
+    width: 45vw;
+    background-color: v.$primary-color;
+    opacity: 60%;
+  }
+  .restaurant_text {
+    font-family: "Just Another Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: v.$white-color;
+    font-size: 40px;
+    position: absolute;
+    text-align: center;
+    width: 50%;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    margin: 0;
+  }
+  @media (min-width: v.$tablet) {
     .hero_shadow {
-        height: 25vh;
-        width: 45vw;
-        background-color: v.$primary-color;
-        opacity: 60%;
+      height: 35vh;
+      width: 45vw;
     }
     .restaurant_text {
-        font-family: "Just Another Hand", cursive;
-        font-weight: 400;
-        font-style: normal;
-        color: v.$white-color;
-        font-size: 40px;
-        position: absolute;
-        text-align: center;
-        width: 50%;
-        top: 48%;
-        left: 50%;
-        transform: translate(-50%, 0%,);
-        margin: 0;
-        
+      font-size: 50px;
+      padding: 20px;
+      width: 30%;
+      top: 43%;
+      left: 50%;
+      transform: translate(-50%, 0%);
     }
-    @media(min-width: v.$tablet) {
-        .hero_shadow {
-            height: 35vh;
-            width: 45vw;
-        }
-        .restaurant_text{
-            font-size: 50px;
-            padding: 20px;
-            width: 30%;
-            top: 43%;
-            left: 50%;
-            transform: translate(-50%, 0%,);
-        }
-    }
+  }
 }
 
 .startpage_meny {
-    height: 70dvh;
-    background-color: v.$primary-color;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;  
-    gap: 50px;
-    opacity: 0;
-    transition: 1s all ease;
-    &_text {
-        color: v.$white-color;
-        margin: 0;
-        display: inline;      
-        width: 70%;
-        font-family: "Lucida Calligraphy", cursive;
-       
-    }
+  height: 70dvh;
+  background-color: v.$primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  opacity: 0;
+  transition: 1s all ease;
+  &_text {
+    color: v.$white-color;
+    margin: 0;
+    display: inline;
+    width: 70%;
+    font-family: "Lucida Calligraphy", cursive;
+  }
 
-    button {
-        background-color: rgb(82, 75, 60);
-        width: 50%;
-        border-radius: 20px;
-        color: v.$white-color;
-    }
-    button:hover {
-        border: 1px solid v.$white-color;
-    }
+  button {
+    background-color: rgb(82, 75, 60);
+    width: 50%;
+    border-radius: 20px;
+    color: v.$white-color;
+  }
+  button:hover {
+    border: 1px solid v.$white-color;
+  }
 }
-.startpage_meny.active{
-    opacity: 1;
+.startpage_meny.active {
+  opacity: 1;
 }
 .active.fade-bottom {
-    animation: fade-bottom 1s ease-in;
+  animation: fade-bottom 1s ease-in;
 }
 .reservation_container {
-    height: 50dvh;
-    background-color: v.$greyblue-color;
+  height: 50dvh;
+  background-color: v.$greyblue-color;
 }
