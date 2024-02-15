@@ -9,7 +9,7 @@ export const Bookingconfirmation = (booked: IBookinginfo) => {
         <h4>Bokningsbekräftelse</h4>
         <p>Tack för din bokning hos oss på Trattoria Gustoso!</p>
         <p>{booked.id}</p>
-        <p>resturangens id</p>
+        <p>{booked.restaurantId}</p>
         <p>datum</p>
         <p>time</p>
         <p>hur många personer</p>
