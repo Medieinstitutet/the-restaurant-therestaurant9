@@ -93,7 +93,7 @@ export const Layout = () => {
           </button>
         </div>
       </div>
-      <footer>
+      <footer className="footer">
         <section>
           <h3>Öppettider:</h3>
           <p>Onsdag-Söndag: 17-23</p>
