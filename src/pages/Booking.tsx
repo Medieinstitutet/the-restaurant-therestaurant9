@@ -4,6 +4,7 @@ import { IBooking } from "../models/IBooking";
 import { BookingCustomerData } from "../components/BookingCustomerData";
 import { handleBookingSubmit } from "../services/handleBookingSubmit";
 import { Guest } from "../models/Guest";
+import { TimeSlot } from "../models/TimeSlot";
 
 export const Booking = () => {
   const [date, setDate] = useState(new Date());
@@ -34,8 +35,7 @@ export const Booking = () => {
     new Guest(11, false),
     new Guest(12, false),
   ];
-  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  const timeSlots = ["18:00", "21:00"];
+  const timeSlots = [new TimeSlot("18:00", 15), new TimeSlot("21:00", 15)];
 
   let guestClass = "";
 
@@ -100,9 +100,9 @@ export const Booking = () => {
         <p>Selected Date: {date.toDateString()}</p>
         <p>Sittning</p>
         <ul>
-          {timeSlots.map((timeSlot) => (
-            <li key={timeSlot} onClick={() => handleTimeClick(timeSlot)}>
-              {timeSlot}
+          {timeSlots.map((time) => (
+            <li key={time.time} onClick={() => handleTimeClick(time.time)}>
+              {time.time}
             </li>
           ))}
         </ul>
