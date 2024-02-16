@@ -43,6 +43,13 @@
   margin-bottom: 8px;
 }
 
+.pTag {
+  margin-top: 5px;
+  padding: 2px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
 .bookingForm .bookingInput {
   width: 80%;
   height: 30px;
@@ -67,8 +74,17 @@
   background-color: #cfbca5;
 }
 
+.bookingButton:disabled {
+  background-color: #7c7c7c;
+  color: #424141b7;
+  cursor: auto;
+  &:hover {
+    background-color: #7c7c7c;
+    color: #424141b7;
+  }
+}
+
 .guestAmount,
-.bookingForm ul li,
 .bookingTime {
   display: flex;
   flex-direction: column;
@@ -81,13 +97,37 @@
   cursor: pointer;
 }
 
-.bookingForm ul li:hover,
+.bookingTimeFull {
+  @extend .bookingTime;
+  background-color: rgb(255, 116, 116);
+  font-weight: bold;
+  pointer-events: none;
+}
+
 .guestAmount:hover,
 .bookingTime:hover {
   background-color: rgb(218, 216, 216);
 }
-.guestClicked {
-  background-color: rgb(218, 216, 216);
+
+.bookingTimeFull:hover {
+  background-color: rgb(208, 82, 82);
+}
+
+.bookingCustomerDataContainer {
+  visibility: visible;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookingCustomerDataContainerHidden,
+.bookingCustomerDataContainerHidden * {
+  visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  width: 0;
+  height: 0;
 }
 
 .bookingImageContainer {

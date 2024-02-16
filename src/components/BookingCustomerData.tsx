@@ -4,14 +4,22 @@ import { ChangeEvent } from "react";
 export interface IBookingCustomerData {
   booking: IBooking;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  timeIsClicked: boolean;
 }
 
 export const BookingCustomerData = ({
   booking,
   handleChange,
+  timeIsClicked,
 }: IBookingCustomerData) => {
   return (
-    <>
+    <div
+      className={
+        timeIsClicked
+          ? "bookingCustomerDataContainer"
+          : "bookingCustomerDataContainerHidden"
+      }
+    >
       <h4>Kunduppgifter</h4>
       <p>Förnamn</p>
       <input
@@ -20,6 +28,7 @@ export const BookingCustomerData = ({
         value={booking?.customer.userName}
         onChange={handleChange}
         name="userName"
+        required
       />
       <p>Efternamn</p>
       <input
@@ -28,6 +37,7 @@ export const BookingCustomerData = ({
         value={booking?.customer.userLastName}
         onChange={handleChange}
         name="userLastName"
+        required
       />
       <p>Email</p>
       <input
@@ -36,6 +46,7 @@ export const BookingCustomerData = ({
         value={booking?.customer.userEmail}
         onChange={handleChange}
         name="userEmail"
+        required
       />
       <p>Telefon</p>
       <input
@@ -44,7 +55,8 @@ export const BookingCustomerData = ({
         value={booking?.customer.userPhone}
         onChange={handleChange}
         name="userPhone"
+        required
       />
-    </>
+    </div>
   );
 };

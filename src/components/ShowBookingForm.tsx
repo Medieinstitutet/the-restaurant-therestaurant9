@@ -19,6 +19,7 @@ interface IShowBookingForm {
     table18Full: boolean;
     table21Full: boolean;
   };
+  timeIsClicked: boolean;
 }
 export const ShowBookingForm = ({
   booking,
@@ -27,6 +28,7 @@ export const ShowBookingForm = ({
   handleTimeClick,
   handleChange,
   isFull,
+  timeIsClicked,
 }: IShowBookingForm) => {
   const guests = [
     new Guest(1, false),
@@ -68,21 +70,30 @@ export const ShowBookingForm = ({
               </li>
             ))}
           </ul>
+          <p className="pTag">
+            Selected amount of guests: {booking.numberOfGuests}
+          </p>
           <p>Datum</p>
           <Calendar
             value={booking.date}
             onChange={calendarOnChange}
             showWeekNumbers
           />
-          <p>Selected Date: {booking.date.toString()}</p>
+          <p className="pTag">Selected Date: {booking.date}</p>
           <BookingTimeOption
             booking={booking}
             handleTimeClick={handleTimeClick}
             isFull={isFull}
           />
-          <BookingCustomerData booking={booking} handleChange={handleChange} />
+          <BookingCustomerData
+            booking={booking}
+            handleChange={handleChange}
+            timeIsClicked={timeIsClicked}
+          />
           <div className="bookingButtonContainer">
-            <button className="bookingButton">Skicka</button>
+            <button className="bookingButton" disabled={!timeIsClicked}>
+              Skicka
+            </button>
           </div>
         </form>
         <div className="bookingImageContainer">

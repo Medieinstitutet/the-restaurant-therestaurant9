@@ -21,6 +21,7 @@ export const Booking = () => {
     table18Full: false,
     table21Full: false,
   });
+  const [timeIsClicked, setTimeIsClicked] = useState<boolean>(false);
 
   type ValuePiece = Date | null;
   type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -44,16 +45,11 @@ export const Booking = () => {
     const bookingListChosenDate: IBooking[] = bookingList.data.filter(
       (booking: IBooking) => booking.date === nextValue?.toLocaleString()
     );
-    console.log(bookingListChosenDate);
-
-    // const maxGuestsPerTable = 6;
-    // const maxTablePerTimeSlot = 15;
-    // const maxGuestsPerTimeSlot = maxGuestsPerTable * maxTablePerTimeSlot; //90
-    // const numberOfSeatsLeft = maxGuestsPerTimeSlot - booking.numberOfGuests;
-    // const numberOfTablesLeft = numberOfSeatsLeft / maxGuestsPerTable;
+    // console.log(bookingListChosenDate);
 
     let tables18 = 0;
     let tables21 = 0;
+
     for (let i = 0; i < bookingListChosenDate.length; i++) {
       if (bookingListChosenDate[i].time === "18:00") {
         tables18 += Math.ceil(bookingListChosenDate[i].numberOfGuests / 6);
@@ -77,6 +73,14 @@ export const Booking = () => {
     if (booking) {
       setBooking({ ...booking, time: timeSlot });
     }
+    setTimeIsClicked(true);
+    // if (timeSlot === "18:00") {
+    //   setTimeIsClicked({ ...timeIsClicked, time18Clicked: true });
+    // } else {
+    //   if (timeSlot === "21:00") {
+    //     setTimeIsClicked({ ...timeIsClicked, time21Clicked: true });
+    //   }
+    // }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -89,7 +93,8 @@ export const Booking = () => {
     }
   };
 
-  console.log(booking);
+  // console.log(booking);
+  console.log(timeIsClicked);
 
   return (
     <ShowBookingForm
@@ -99,6 +104,7 @@ export const Booking = () => {
       handleTimeClick={handleTimeClick}
       handleChange={handleChange}
       isFull={isFull}
+      timeIsClicked={timeIsClicked}
     />
   );
 };
