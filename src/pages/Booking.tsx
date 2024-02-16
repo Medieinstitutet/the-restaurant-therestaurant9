@@ -5,7 +5,7 @@ import { BookingCustomerData } from "../components/BookingCustomerData";
 import { handleBookingSubmit } from "../services/handleBookingSubmit";
 import { Guest } from "../models/Guest";
 import { TimeSlot } from "../models/TimeSlot";
-import axios from "axios";
+import { getAllBookings } from "../services/getAllBookings";
 
 export const Booking = () => {
   const [date, setDate] = useState(new Date());
@@ -22,6 +22,9 @@ export const Booking = () => {
     },
   });
 
+  type ValuePiece = Date | null;
+  type Value = ValuePiece | [ValuePiece, ValuePiece];
+
   const numberOfGuests = [
     new Guest(1, false),
     new Guest(2, false),
@@ -36,27 +39,44 @@ export const Booking = () => {
     new Guest(11, false),
     new Guest(12, false),
   ];
-  const timeSlots = [new TimeSlot("18:00", 15), new TimeSlot("21:00", 15)];
 
   let guestClass = "";
 
-  type ValuePiece = Date | null;
-  type Value = ValuePiece | [ValuePiece, ValuePiece];
+  const timeSlots = [new TimeSlot("18:00", 15), new TimeSlot("21:00", 15)];
+  const maxGuestsPerTable = 6;
+  const maxTablePerTimeSlot = 15;
+  const maxGuestsPerTimeSlot = maxGuestsPerTable * maxTablePerTimeSlot; //90
+  const numberOfSeatsLeft = maxGuestsPerTimeSlot - booking.numberOfGuests;
+  const numberOfTablesLeft = numberOfSeatsLeft / maxGuestsPerTable;
+
+  const handleGuestClick = (amount: number) => {
+    if (booking) {
+      setBooking({ ...booking, numberOfGuests: amount });
+    }
+    let guestClass = "guestClicked";
+  };
 
   const calendarOnChange = async (nextValue: Value) => {
     console.log(nextValue);
     if (booking && nextValue) {
       setBooking({ ...booking, date: nextValue?.toLocaleString() });
     }
-    const bookingsResponse = await axios.get(
-      "https://school-restaurant-api.azurewebsites.net/booking/restaurant/65cb31932b1f9164881776d0"
-    );
-    console.log(bookingsResponse);
-    const bookingList = bookingsResponse.data;
-    const filteredList = bookingList.filter(
+    const bookingList = await getAllBookings();
+    const bookingListChosenDate = bookingList.data.filter(
       (booking: IBooking) => booking.date === nextValue?.toLocaleString()
     );
-    console.log(filteredList);
+    console.log(bookingListChosenDate);
+
+    bookingListChosenDate.map((booking: IBooking) => {
+      if (booking.time === "18:00") {
+      }
+    });
+  };
+
+  const handleTimeClick = (timeSlot: string) => {
+    if (booking) {
+      setBooking({ ...booking, time: timeSlot });
+    }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -69,19 +89,6 @@ export const Booking = () => {
     }
   };
 
-  const handleTimeClick = (timeSlot: string) => {
-    if (booking) {
-      setBooking({ ...booking, time: timeSlot });
-    }
-  };
-
-  const handleGuestClick = (amount: number) => {
-    if (booking) {
-      setBooking({ ...booking, numberOfGuests: amount });
-    }
-    guestClass = "guestClicked";
-  };
-
   console.log(booking);
 
   return (
@@ -90,6 +97,7 @@ export const Booking = () => {
         className="bookingForm"
         onSubmit={(e) => {
           e.preventDefault();
+          handleBookingSubmit(booking);
         }}
       >
         <h3>Boka</h3>
@@ -122,12 +130,7 @@ export const Booking = () => {
         </ul>
         <BookingCustomerData booking={booking} handleChange={handleChange} />
         <div className="bookingButtonContainer">
-          <button
-            className="bookingButton"
-            onClick={() => handleBookingSubmit(booking)}
-          >
-            Skicka
-          </button>
+          <button className="bookingButton">Skicka</button>
         </div>
       </form>
       <div className="bookingImageContainer">
