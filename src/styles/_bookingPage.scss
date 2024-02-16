@@ -19,7 +19,15 @@
   }
 }
 
-.bookingForm ul {
+.bookingFormTimeContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookingForm ul,
+.bookingFormTimeContainer ul {
   list-style: none;
   width: 80%;
   display: flex;
@@ -59,7 +67,9 @@
   background-color: #cfbca5;
 }
 
-.bookingForm ul li {
+.guestAmount,
+.bookingForm ul li,
+.bookingTime {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +81,9 @@
   cursor: pointer;
 }
 
-.bookingForm ul li:hover {
+.bookingForm ul li:hover,
+.guestAmount:hover,
+.bookingTime:hover {
   background-color: rgb(218, 216, 216);
 }
 .guestClicked {
