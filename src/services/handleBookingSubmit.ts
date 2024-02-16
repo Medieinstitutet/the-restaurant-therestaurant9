@@ -13,10 +13,11 @@ export const handleBookingSubmit = async (booking: IBooking) => {
   }
 
   //Hämta bokningar
-  const bookingsResponse = await axios.get(
-    "https://school-restaurant-api.azurewebsites.net/booking/restaurant/65cb31932b1f9164881776d0"
-  );
-  console.log(bookingsResponse);
+  // const bookingsResponse = await axios.get(
+  //   "https://school-restaurant-api.azurewebsites.net/booking/restaurant/65cb31932b1f9164881776d0"
+  // );
+  // console.log(bookingsResponse);
+  // const bookingList = bookingsResponse.data;
 
   // if (numberOfSeatsLeft < booking.numberOfGuests) {
   //   return;

@@ -5,6 +5,7 @@ import { BookingCustomerData } from "../components/BookingCustomerData";
 import { handleBookingSubmit } from "../services/handleBookingSubmit";
 import { Guest } from "../models/Guest";
 import { TimeSlot } from "../models/TimeSlot";
+import axios from "axios";
 
 export const Booking = () => {
   const [date, setDate] = useState(new Date());
@@ -42,11 +43,20 @@ export const Booking = () => {
   type ValuePiece = Date | null;
   type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-  const calendarOnChange = (nextValue: Value) => {
+  const calendarOnChange = async (nextValue: Value) => {
     console.log(nextValue);
     if (booking && nextValue) {
       setBooking({ ...booking, date: nextValue?.toLocaleString() });
     }
+    const bookingsResponse = await axios.get(
+      "https://school-restaurant-api.azurewebsites.net/booking/restaurant/65cb31932b1f9164881776d0"
+    );
+    console.log(bookingsResponse);
+    const bookingList = bookingsResponse.data;
+    const filteredList = bookingList.filter(
+      (booking: IBooking) => booking.date === nextValue?.toLocaleString()
+    );
+    console.log(filteredList);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -96,8 +106,12 @@ export const Booking = () => {
           ))}
         </ul>
         <p>Datum</p>
-        <Calendar value={date} onChange={calendarOnChange} showWeekNumbers />
-        <p>Selected Date: {date.toDateString()}</p>
+        <Calendar
+          value={booking.date}
+          onChange={calendarOnChange}
+          showWeekNumbers
+        />
+        <p>Selected Date: {booking.date.toString()}</p>
         <p>Sittning</p>
         <ul>
           {timeSlots.map((time) => (
