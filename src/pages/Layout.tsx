@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./../styles/App.scss";
+import { Burger } from "../components/Burger";
 
 const restaurtantId = "65cb31932b1f9164881776d0";
 
@@ -29,6 +30,7 @@ export const Layout = () => {
       <header>
         <nav>
           <h2>Trattoria Gustoso</h2>
+          <Burger />
           <ul>
             <li>
               <NavLink to={"/"}>Hem</NavLink>

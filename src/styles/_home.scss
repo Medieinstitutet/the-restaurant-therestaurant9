@@ -27,7 +27,6 @@
   .restaurant_text {
     position: absolute;
     text-align: center;
-    width: 50%;
     top: 48%;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -37,7 +36,7 @@
         left: 50%;
     }
     @include mixins.desktop {
-        top: 44%;
+        top: 42%;
         left: 50%;
     }
     p{
@@ -51,7 +50,7 @@
             font-size: 60px;
         }
         @include mixins.desktop{
-            font-size: 70px;
+            font-size: 65px;
         }
     }
 
