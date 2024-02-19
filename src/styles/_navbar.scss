@@ -2,41 +2,41 @@
 @use "mixins";
 
 header {
-background-color: v.$primary-color;
-height: 50px;
-    nav {
-        height: 100%;
+  background-color: v.$primary-color;
+  height: 50px;
+  nav {
+    height: 100%;
 
-        h2 {
-            margin-top: 5px;
-            margin-bottom: 0;
-            padding-left: 10px;
-            top: 10px;
-            float: left;
-            color: v.$white-color;
-            font-family: "Just Another Hand", cursive;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 30px;
-        }
-        ul {
-            display: none;
-            @include mixins.tablet {    
-            list-style: none;
-            gap: 15px;
-            margin: 0;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            }
-            li a {
-                color: v.$white-color;
-            }
-            li a:hover {
-                color: v.$white-color;
-                text-decoration: underline;
-            }
-        }
+    h2 {
+      margin-top: 5px;
+      margin-bottom: 0;
+      padding-left: 10px;
+      top: 10px;
+      float: left;
+      color: v.$white-color;
+      font-family: "Just Another Hand", cursive;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 30px;
     }
+    ul {
+      display: none;
+      @include mixins.tablet {
+        list-style: none;
+        gap: 15px;
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      li a {
+        color: v.$white-color;
+      }
+      li a:hover {
+        color: v.$white-color;
+        text-decoration: underline;
+      }
+    }
+  }
 }
