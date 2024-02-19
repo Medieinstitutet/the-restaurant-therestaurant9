@@ -74,6 +74,12 @@
     width: 70%;
     font-family: "Lucida Calligraphy", cursive;
     transition: 1.2s ease;
+    a {
+      color: v.$white-color;
+    }
+    a:hover {
+      color: v.$white-color;
+    }
   }
 
   button {

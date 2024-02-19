@@ -64,7 +64,7 @@ export const Layout = () => {
           naturliga smakerna på ett harmoniskt sätt. Oavsett vilken rätt man
           väljer på en italiensk restaurang, kan man vara säker på att få njuta
           av autentiska smaker och en måltid som är full av kärlek och passion
-          för matlagning. Buon appetito!"
+          för matlagning. <NavLink to={"/pages/admin"}>Buon appetito!"</NavLink>
         </p>
 
         <button
