@@ -1,0 +1,69 @@
+@use "variables" as v;
+
+.adminMainContainer {
+  width: 100%;
+  background-color: v.$secondary-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.adminContainer {
+  width: 90%;
+  border: 1px solid v.$primary-color;
+  border-radius: 10px;
+  background-color: v.$light-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adminContainer h3 {
+  color: black;
+}
+
+.adminSortContainer {
+  width: 80%;
+  padding: 10px;
+  color: black;
+}
+
+.adminSortContainer input {
+  color-scheme: light;
+}
+
+.adminBookingsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px;
+}
+
+.adminBookingContainer {
+  width: 80%;
+  border: 1px solid v.$primary-color;
+  padding: 10px;
+  background-color: white;
+  color: black;
+}
+
+.adminBookingContainer p {
+  margin: 0;
+}
+
+.adminButtonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 5px 0px;
+}
+
+.adminButtonContainer button {
+  //   width: 65px;
+  //   height: 40px;
+  font-size: small;
+  padding: 10px;
+}
