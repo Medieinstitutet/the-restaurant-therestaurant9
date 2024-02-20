@@ -7,6 +7,7 @@ import { Contact } from "./pages/Contact";
 import { Admin } from "./pages/Admin";
 import { PagesLayout } from "./pages/PagesLayout";
 import { Bookingconfirmation } from "./pages/Bookingconfirmation";
+import { AdminDetails } from "./pages/AdminDetails";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "/pages/bookingconfirmation",
         element: <Bookingconfirmation />,
+      },
+      {
+        path: "/pages/admin/:bookingId",
+        element: <AdminDetails />,
       },
     ],
   },

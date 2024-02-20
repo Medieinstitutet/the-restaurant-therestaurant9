@@ -1,0 +1,3 @@
+export const AdminDetails = () => {
+  return <></>;
+};
