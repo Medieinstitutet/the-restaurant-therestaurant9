@@ -21,7 +21,6 @@ export const Admin = () => {
         setAdminBookings(adminResponse.data);
         setAdminFilterBookings(adminResponse.data);
       }
-      console.log(adminResponse.data);
     };
 
     let shouldUpdateBookings = true;
@@ -33,18 +32,13 @@ export const Admin = () => {
     };
   }, [adminBookings]);
 
-  //nånting funkar inte riktigt här
   const handleAdminSort = (e: ChangeEvent<HTMLInputElement>) => {
-    // setAdminFilterBookings(adminBookings);
-    console.log(adminBookings);
-
     let value = e.target.value;
     const filteredList: IAdminBookingInfo[] = adminBookings.filter(
       (adminBooking: IAdminBookingInfo) =>
         adminBooking.date === value + " 00:00:00"
     );
     setAdminFilterBookings(filteredList);
-    console.log(adminBookings);
   };
 
   const removeBooking = async (_id: string) => {
