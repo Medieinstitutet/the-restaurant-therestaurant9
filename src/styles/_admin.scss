@@ -2,6 +2,7 @@
 
 .adminMainContainer {
   width: 100%;
+  min-height: 100vh;
   background-color: v.$secondary-color;
   display: flex;
   justify-content: center;
@@ -66,4 +67,21 @@
   //   height: 40px;
   font-size: small;
   padding: 10px;
+}
+
+.adminDetailsContainer {
+  width: 100%;
+  height: 100vh;
+  background-color: v.$secondary-color;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.adminBookingDetailsContainer {
+  width: 80%;
+  height: 25%;
+  border: 1px solid v.$primary-color;
+  padding: 10px;
+  background-color: white;
+  color: black;
 }
