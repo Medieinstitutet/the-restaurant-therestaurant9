@@ -4,6 +4,7 @@ import { useEffect, useState, ChangeEvent } from "react";
 import { IAdminBookingInfo } from "../models/IAdminBookingInfo";
 import { AdminSort } from "../components/AdminSort";
 import axios from "axios";
+import { IBooking, ICustomer } from "../models/IBooking";
 
 export const Admin = () => {
   const [adminBookings, setAdminBookings] = useState<IAdminBookingInfo[]>([]);
@@ -53,6 +54,8 @@ export const Admin = () => {
     );
     console.log(response.status);
   };
+
+ 
 
   return (
     <div className="adminMainContainer">

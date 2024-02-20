@@ -3,9 +3,12 @@ import { IAdminBookingInfo } from "../models/IAdminBookingInfo";
 import { useParams } from "react-router-dom";
 import { ShowAdminBookingDetails } from "../components/ShowAdminBookingDetails";
 import { getBookingInfo } from "../services/getBookingInfo";
+import axios from "axios";
+import { IAdminCustomer } from "../models/IAdminCustomer";
 
 export const AdminDetails = () => {
   const [adminBooking, setAdminBooking] = useState<IAdminBookingInfo>();
+  const [customer, setCustomer] = useState<IAdminCustomer>();
 
   const { bookingId } = useParams();
 
@@ -14,14 +17,24 @@ export const AdminDetails = () => {
       const getOneBooking = async () => {
         const clickedAdminBooking = await getBookingInfo(bookingId);
         setAdminBooking(clickedAdminBooking);
+
+        const response = await axios.get<IAdminCustomer[]>(
+          "https://school-restaurant-api.azurewebsites.net/customer/" +
+            clickedAdminBooking.customerId
+        );
+        setCustomer(response.data[0]);
+        console.log(response.data[0]);
       };
-      getOneBooking();
+
+      if (!adminBooking) getOneBooking();
     }
-  });
+  }, []);
 
   return (
     <div className="adminDetailsContainer">
-      {adminBooking && <ShowAdminBookingDetails booking={adminBooking} />}
+      {adminBooking && customer && (
+        <ShowAdminBookingDetails booking={adminBooking} customer={customer} />
+      )}
     </div>
   );
 };
