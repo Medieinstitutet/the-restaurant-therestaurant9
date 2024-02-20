@@ -19,6 +19,7 @@ export const Admin = () => {
 
       if (shouldUpdateBookings) {
         setAdminBookings(adminResponse.data);
+        setAdminFilterBookings(adminResponse.data);
       }
       console.log(adminResponse.data);
     };
@@ -34,8 +35,7 @@ export const Admin = () => {
 
   //nånting funkar inte riktigt här
   const handleAdminSort = (e: ChangeEvent<HTMLInputElement>) => {
-    // setAdminBookings([]);
-    // setBookingsLS([]);
+    // setAdminFilterBookings(adminBookings);
     console.log(adminBookings);
 
     let value = e.target.value;
@@ -54,13 +54,20 @@ export const Admin = () => {
     console.log(response.status);
   };
 
+  const resetAdminSort = () => {
+    setAdminFilterBookings(adminBookings);
+  };
+
   return (
     <div className="adminMainContainer">
       <section className="adminContainer">
         <h3>Bokningar</h3>
-        <AdminSort handleAdminSort={handleAdminSort} />
+        <AdminSort
+          handleAdminSort={handleAdminSort}
+          resetAdminSort={resetAdminSort}
+        />
         <div className="adminBookingsContainer">
-          {adminBookings?.map((adminBooking) => {
+          {adminFilterBookings?.map((adminBooking) => {
             return (
               <ShowAdminBookings
                 key={adminBooking._id}

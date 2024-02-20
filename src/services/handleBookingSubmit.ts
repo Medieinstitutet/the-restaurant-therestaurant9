@@ -4,17 +4,6 @@ import { IBooking } from "../models/IBooking";
 let insertedId: string | string = "";
 
 export const handleBookingSubmit = async (booking: IBooking) => {
-  //Hämta bokningar
-
-  // if (numberOfSeatsLeft < booking.numberOfGuests) {
-  //   return;
-  // } else {
-  //   if (numberOfTablesLeft < 1) {
-  //     return;
-  //   } else {
-  //   }
-  // }
-
   const response = await axios.post(
     "https://school-restaurant-api.azurewebsites.net/booking/create",
     {
@@ -31,12 +20,9 @@ export const handleBookingSubmit = async (booking: IBooking) => {
     }
   );
 
- const insertedId = response.data;
+  const insertedId = response.data;
   console.log(insertedId);
   return insertedId;
-
 };
 
 export { insertedId };
-
-
