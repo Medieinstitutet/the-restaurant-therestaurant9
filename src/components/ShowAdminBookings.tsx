@@ -3,9 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 interface IShowAdminBookings {
   booking: IAdminBookingInfo;
+  removeBooking: (_id: string) => void;
 }
 
-export const ShowAdminBookings = ({ booking }: IShowAdminBookings) => {
+export const ShowAdminBookings = ({
+  booking,
+  removeBooking,
+}: IShowAdminBookings) => {
   const navigate = useNavigate();
   return (
     <div className="adminBookingContainer">
@@ -21,7 +25,13 @@ export const ShowAdminBookings = ({ booking }: IShowAdminBookings) => {
         >
           Visa
         </button>
-        <button>Radera</button>
+        <button
+          onClick={() => {
+            removeBooking(booking._id);
+          }}
+        >
+          Radera
+        </button>
       </div>
     </div>
   );
