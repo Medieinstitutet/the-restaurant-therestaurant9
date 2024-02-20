@@ -1,8 +1,8 @@
 export interface IBookinginfo {
-  restaurantId: string;
-  id: string;
-  date: string;
-  time: string;
-  numberOfGuests: number;
-  customerId: string;
+      _id: string;
+      restaurantId: string;
+      date: string;
+      time: string;
+      numberOfGuests: number;
+      customerId: string;
 }

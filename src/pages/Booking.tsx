@@ -1,7 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import { IBooking } from "../models/IBooking";
-import { getAllBookings } from "../services/getAllBookings";
-import { ShowBookingForm } from "../components/ShowBookingForm";
+import { BookingCustomerData } from "../components/BookingCustomerData";
+import { handleBookingSubmit } from "../services/handleBookingSubmit";
+import { Guest } from "../models/Guest";
 
 export const Booking = () => {
   const [booking, setBooking] = useState<IBooking>({
@@ -93,18 +94,68 @@ export const Booking = () => {
     }
   };
 
-  // console.log(booking);
-  console.log(timeIsClicked);
+  const handleTimeClick = (timeSlot: string) => {
+    if (booking) {
+      setBooking({ ...booking, time: timeSlot });
+    }
+  };
+
+  const handleGuestClick = (amount: number) => {
+    if (booking) {
+      setBooking({ ...booking, numberOfGuests: amount });
+    }
+    guestClass = "guestClicked";
+  };
+
+  console.log(booking);
 
   return (
-    <ShowBookingForm
-      booking={booking}
-      handleGuestClick={handleGuestClick}
-      calendarOnChange={calendarOnChange}
-      handleTimeClick={handleTimeClick}
-      handleChange={handleChange}
-      isFull={isFull}
-      timeIsClicked={timeIsClicked}
-    />
+    <section className="bookingContainer">
+      <form
+        className="bookingForm"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <h3>Boka</h3>
+        <p>Antal gäster</p>
+        <ul>
+          {numberOfGuests.map((guests) => (
+            <li
+              key={guests.amount}
+              onClick={() => handleGuestClick(guests.amount)}
+              className={guestClass}
+            >
+              {guests.amount}
+            </li>
+          ))}
+        </ul>
+        <p>Datum</p>
+        <Calendar value={date} onChange={calendarOnChange} showWeekNumbers />
+        <p>Selected Date: {date.toDateString()}</p>
+        <p>Sittning</p>
+        <ul>
+          {timeSlots.map((timeSlot) => (
+            <li key={timeSlot} onClick={() => handleTimeClick(timeSlot)}>
+              {timeSlot}
+            </li>
+          ))}
+        </ul>
+        <BookingCustomerData booking={booking} handleChange={handleChange} />
+        <div className="bookingButtonContainer">
+          <button
+            className="bookingButton"
+            onClick={() => handleBookingSubmit(booking)}
+          >
+            Skicka
+          </button>
+        </div>
+      </form>
+      <div className="bookingImageContainer">
+        <section className="bookingTitleContainer">
+          <p className="bookingTitle">Trattoria Gustoso</p>
+        </section>
+      </div>
+    </section>
   );
 };

@@ -1,6 +1,8 @@
 import axios from "axios";
 import { IBooking } from "../models/IBooking";
 
+let insertedId: string | string = "";
+
 export const handleBookingSubmit = async (booking: IBooking) => {
   //Hämta bokningar
 
@@ -28,8 +30,8 @@ export const handleBookingSubmit = async (booking: IBooking) => {
       },
     }
   );
-
-  //Lägga till customer submit här?
-
   console.log(response);
 };
+
+export { insertedId };
+// 65ce32cbc7b972ae32d44425
