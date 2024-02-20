@@ -13,7 +13,7 @@ export const Bookingconfirmation = () => {
     setBooked(bookedId);
 
     if (bookedId) {
-      axios
+      axios 
         .get<IBooking[]>(
           `https://school-restaurant-api.azurewebsites.net/booking/${bookedId}`
         )

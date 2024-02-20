@@ -5,6 +5,7 @@ import Calendar from "react-calendar";
 import { ChangeEvent } from "react";
 import { BookingCustomerData } from "./BookingCustomerData";
 import { BookingTimeOption } from "./BookingTimeOption";
+import { useNavigate } from "react-router-dom";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -47,14 +48,18 @@ export const ShowBookingForm = ({
 
   let guestClass = "guestAmount";
 
+  const navigate = useNavigate();
+
   return (
     <>
       <section className="bookingContainer">
         <form
           className="bookingForm"
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
             handleBookingSubmit(booking);
+            const id = await handleBookingSubmit(booking);
+            navigate("/pages/bookingconfirmation?bookingId=" + id.insertedId);
           }}
         >
           <h3>Boka</h3>
