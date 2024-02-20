@@ -3,6 +3,7 @@ import { IBooking } from "../models/IBooking";
 import { BookingCustomerData } from "../components/BookingCustomerData";
 import { handleBookingSubmit } from "../services/handleBookingSubmit";
 import { Guest } from "../models/Guest";
+import { useNavigate } from "react-router-dom";
 
 export const Booking = () => {
   const [booking, setBooking] = useState<IBooking>({
@@ -106,15 +107,18 @@ export const Booking = () => {
     }
     guestClass = "guestClicked";
   };
-
+  const navigate = useNavigate();
   console.log(booking);
 
   return (
     <section className="bookingContainer">
       <form
         className="bookingForm"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
+          handleBookingSubmit(booking);
+          const id = await handleBookingSubmit(booking);
+          navigate("/pages/bookingconfirmation?bookingId=" + id.insertedId);
         }}
       >
         <h3>Boka</h3>
@@ -142,14 +146,7 @@ export const Booking = () => {
           ))}
         </ul>
         <BookingCustomerData booking={booking} handleChange={handleChange} />
-        <div className="bookingButtonContainer">
-          <button
-            className="bookingButton"
-            onClick={() => handleBookingSubmit(booking)}
-          >
-            Skicka
-          </button>
-        </div>
+        <div className="bookingButtonContainer"></div>
       </form>
       <div className="bookingImageContainer">
         <section className="bookingTitleContainer">
