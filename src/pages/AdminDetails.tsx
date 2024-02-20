@@ -17,7 +17,7 @@ export const AdminDetails = () => {
       };
       getOneBooking();
     }
-  });
+  }, []);
 
   return (
     <div className="adminDetailsContainer">
