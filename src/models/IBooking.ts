@@ -1,4 +1,4 @@
-interface ICustomer {
+export interface ICustomer {
   userName: string;
   userLastName: string;
   userEmail: string;
@@ -11,3 +11,4 @@ export interface IBooking {
   numberOfGuests: number;
   customer: ICustomer;
 }
+
