@@ -30,8 +30,18 @@ export const handleBookingSubmit = async (booking: IBooking) => {
       },
     }
   );
+<<<<<<< HEAD
+
+  //Lägga till customer submit här?
+
   console.log(response);
+=======
+  const insertedId = response.data;
+  console.log(insertedId);
+  return insertedId;
+>>>>>>> bookingconfirmation
 };
 
 export { insertedId };
+
 
