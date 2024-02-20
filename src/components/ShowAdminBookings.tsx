@@ -2,9 +2,13 @@ import { IAdminBookingInfo } from "../models/IAdminBookingInfo";
 
 interface IShowAdminBookings {
   booking: IAdminBookingInfo;
+  removeBooking: (_id: string) => void;
 }
 
-export const ShowAdminBookings = ({ booking }: IShowAdminBookings) => {
+export const ShowAdminBookings = ({
+  booking,
+  removeBooking,
+}: IShowAdminBookings) => {
   return (
     <div className="adminBookingContainer">
       <h4>BokningsID: {booking._id}</h4>
@@ -13,7 +17,13 @@ export const ShowAdminBookings = ({ booking }: IShowAdminBookings) => {
       <p>Antal gäster: {booking.numberOfGuests}</p>
       <div className="adminButtonContainer">
         <button>Visa</button>
-        <button>Radera</button>
+        <button
+          onClick={() => {
+            removeBooking(booking._id);
+          }}
+        >
+          Radera
+        </button>
       </div>
     </div>
   );
