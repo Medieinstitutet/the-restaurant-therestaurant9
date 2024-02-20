@@ -28,8 +28,7 @@ export const Bookingconfirmation = () => {
       <h1>Trattoria Gustoso</h1>
       <h4>Bokningsbekräftelse</h4>
       <p>Tack för din bokning hos oss på Trattoria Gustoso!</p>
-      <p>Bokningsnummer{booked}</p>
-      <p>ResturangId: {bokningInfo.restaurantId}</p>
+      <p>Bokningsnummer: {booked}</p>
       <p>Antal Personer: {bokningInfo.numberOfGuests}</p>
       <p>Tid: {bokningInfo.time}</p>
       <p>Datum: {bokningInfo.date}</p>
