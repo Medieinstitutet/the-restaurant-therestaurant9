@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
         element: <Admin />,
       },
       {
-        path: "/pages/bookingconfirmation",
+        path: "/pages/bookingconfirmation/",
         element: <Bookingconfirmation />,
       },
     ],

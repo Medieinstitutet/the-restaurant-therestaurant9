@@ -1,6 +1,8 @@
 import axios from "axios";
 import { IBooking } from "../models/IBooking";
 
+let insertedId: string | string = "";
+
 export const handleBookingSubmit = async (booking: IBooking) => {
   const response = await axios.post(
     "https://school-restaurant-api.azurewebsites.net/booking/create",
@@ -17,5 +19,10 @@ export const handleBookingSubmit = async (booking: IBooking) => {
       },
     }
   );
-  console.log(response);
+  const insertedId = response.data;
+  console.log(insertedId);
+  return insertedId;
 };
+
+export { insertedId };
+// 65ce32cbc7b972ae32d44425
