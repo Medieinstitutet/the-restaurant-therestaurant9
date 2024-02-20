@@ -17,7 +17,7 @@ export const ShowAdminBookingDetails = ({
       <p>Datum: {booking.date}</p>
       <p>Tid: {booking.time}</p>
       <p>Antal gäster: {booking.numberOfGuests}</p>
-      <p> Förnamn: {customer?.name}</p>
+      <p>Förnamn: {customer?.name}</p>
       <p>Efternamn: {customer?.lastname}</p>
       <p>E-post: {customer.email}</p>
       <p>Telefonnummer: {customer?.phone}</p>

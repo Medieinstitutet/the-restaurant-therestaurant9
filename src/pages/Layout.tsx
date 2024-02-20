@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./../styles/App.scss";
 import { Burger } from "../components/Burger";
 
-const restaurtantId = "65cb31932b1f9164881776d0";
+// restaurtantId = "65cb31932b1f9164881776d0";
 
 export const Layout = () => {
   const navigate = useNavigate();

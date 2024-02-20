@@ -1,8 +1,5 @@
 import { ChangeEvent, useState } from "react";
 import { IBooking } from "../models/IBooking";
-import { BookingCustomerData } from "../components/BookingCustomerData";
-import { handleBookingSubmit } from "../services/handleBookingSubmit";
-import { useNavigate } from "react-router-dom";
 import { getAllBookings } from "../services/getAllBookings";
 import { ShowBookingForm } from "../components/ShowBookingForm";
 
@@ -48,7 +45,6 @@ export const Booking = () => {
     const bookingListChosenDate: IBooking[] = bookingList.data.filter(
       (booking: IBooking) => booking.date === nextValue?.toLocaleString()
     );
-    // console.log(bookingListChosenDate);
 
     let tables18 = 0;
     let tables21 = 0;
@@ -77,13 +73,6 @@ export const Booking = () => {
       setBooking({ ...booking, time: timeSlot });
     }
     setTimeIsClicked(true);
-    // if (timeSlot === "18:00") {
-    //   setTimeIsClicked({ ...timeIsClicked, time18Clicked: true });
-    // } else {
-    //   if (timeSlot === "21:00") {
-    //     setTimeIsClicked({ ...timeIsClicked, time21Clicked: true });
-    //   }
-    // }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -96,8 +85,6 @@ export const Booking = () => {
     }
   };
 
-  const navigate = useNavigate();
-
   return (
     <ShowBookingForm
       booking={booking}
@@ -108,48 +95,5 @@ export const Booking = () => {
       isFull={isFull}
       timeIsClicked={timeIsClicked}
     />
-    // <section className="bookingContainer">
-    //   <form
-    //     className="bookingForm"
-    //     onSubmit={async (e) => {
-    //       e.preventDefault();
-    //       handleBookingSubmit(booking);
-    //       const id = await handleBookingSubmit(booking);
-    //       navigate("/pages/bookingconfirmation?bookingId=" + id.insertedId);
-    //     }}
-    //   >
-    //     <h3>Boka</h3>
-    //     <p>Antal gäster</p>
-    //     <ul>
-    //       {numberOfGuests.map((guests) => (
-    //         <li
-    //           key={guests.amount}
-    //           onClick={() => handleGuestClick(guests.amount)}
-    //           className={guestClass}
-    //         >
-    //           {guests.amount}
-    //         </li>
-    //       ))}
-    //     </ul>
-    //     <p>Datum</p>
-    //     <Calendar value={date} onChange={calendarOnChange} showWeekNumbers />
-    //     <p>Selected Date: {date.toDateString()}</p>
-    //     <p>Sittning</p>
-    //     <ul>
-    //       {timeSlots.map((timeSlot) => (
-    //         <li key={timeSlot} onClick={() => handleTimeClick(timeSlot)}>
-    //           {timeSlot}
-    //         </li>
-    //       ))}
-    //     </ul>
-    //     <BookingCustomerData booking={booking} handleChange={handleChange} />
-    //     <div className="bookingButtonContainer"></div>
-    //   </form>
-    //   <div className="bookingImageContainer">
-    //     <section className="bookingTitleContainer">
-    //       <p className="bookingTitle">Trattoria Gustoso</p>
-    //     </section>
-    //   </div>
-    // </section>
   );
 };
