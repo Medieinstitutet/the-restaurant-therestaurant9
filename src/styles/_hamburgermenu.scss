@@ -30,6 +30,7 @@
             top: 0%;
             opacity: 1;
             background-color: v.$white-color;
+            border-radius: 30px;
         }
         .burger-bar-two {
             position: absolute;
@@ -39,16 +40,17 @@
             top: 40%;
             opacity: 1;
             background-color: v.$white-color;
+            border-radius: 30px;
         }
         .burger-bar-three {
             position: absolute;
-
             height: 18%;
             left: 0px;
             right: 0px;
             top: 80%;
             opacity: 1;
             background-color: v.$white-color;
+            border-radius: 30px;
         }
         .burger-bar-two:checked {
             display: none;
